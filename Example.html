@@ -1,0 +1,30 @@
+<div id="drop" class="file_dropper VerticalLayout" style="width:100%;height:100px; background-color:lightblue;border-style: solid;">Drop a file to upload to server</div>
+
+<input type="file" class="fileUpload file_selector" />
+
+<br/>
+<textarea class="copy_past_screenshot" rows="2" style="width:100%"></textarea> 
+
+<div class="upload_preview">
+</div>
+
+<script>
+var uploader
+$(document).ready(function(){
+	uploader = new SVC_FILE_UPLOADER();
+	
+	uploader.Initialize($Context.inputs.UploadedURL,'#drop', '.fileUpload','.copy_past_screenshot', '.upload_preview', startuploading,setoutputs )
+
+});
+
+function startuploading(event){
+	$('.fileUpload').attr('diabled', true);
+	$('#div').attr('diabled', true);
+}
+function setoutputs(filename){
+	
+	$('.fileUpload').attr('diabled', false)
+	$('#div').attr('diabled', false);
+}
+
+</script>
